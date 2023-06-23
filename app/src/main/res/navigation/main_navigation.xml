@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/menuArticle">
+
+<fragment
+        android:id="@+id/menuArticle"
+        android:name="com.yudikryn.newsapp.ui.article.ArticleFragment"
+        android:label="ArticleFragment"
+        tools:layout="@layout/fragment_article"/>
+
+    <fragment
+        android:id="@+id/menuSources"
+        android:name="com.yudikryn.newsapp.ui.sources.SourcesFragment"
+        android:label="SourcesFragment"
+        tools:layout="@layout/fragment_sources">
+        <action
+            android:id="@+id/action_menuSources_to_menuArticle"
+            app:destination="@id/menuArticle" />
+    </fragment>
+
+</navigation>

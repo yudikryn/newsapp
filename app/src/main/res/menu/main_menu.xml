@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuArticle"
+        android:icon="@drawable/baseline_article_24"
+        android:title="@string/menu_article" />
+
+    <item
+        android:id="@+id/menuSources"
+        android:icon="@drawable/baseline_source_24"
+        android:title="@string/menu_sources" />
+
+</menu>
