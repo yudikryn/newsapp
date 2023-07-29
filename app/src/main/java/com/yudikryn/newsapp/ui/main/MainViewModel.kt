@@ -11,8 +11,12 @@ class MainViewModel(private val newsRepository: NewsRepository) : ViewModel() {
     private val mSelectedCategory = MutableLiveData<Int>()
     var selectedCategory: LiveData<Int> = mSelectedCategory
 
-    fun setCategory(category: Int){
+    private val mNameCategory = MutableLiveData<String>()
+    var nameCategory: LiveData<String> = mNameCategory
+
+    fun setCategory(category: Int, nameCategory: String){
         mSelectedCategory.postValue(category)
+        mNameCategory.postValue(nameCategory)
     }
 
     fun getCategory() = newsRepository.getCategory()

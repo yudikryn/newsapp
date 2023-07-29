@@ -55,6 +55,20 @@ class SourcesFragment: Fragment() {
                         setHasFixedSize(true)
                         adapter = soucesAdapter
                     }
+
+                    if (result.data.isNotEmpty()){
+                        soucesAdapter.submitList(result.data)
+                        binding.rvSources.apply {
+                            layoutManager = LinearLayoutManager(context)
+                            setHasFixedSize(true)
+                            adapter = soucesAdapter
+                        }
+                        binding.rvSources.visibility = View.VISIBLE
+                        binding.tvEmptyData.visibility = View.GONE
+                    }else{
+                        binding.rvSources.visibility = View.GONE
+                        binding.tvEmptyData.visibility = View.VISIBLE
+                    }
                 }
                 is Result.Loading -> {}
                 is Result.Error -> {

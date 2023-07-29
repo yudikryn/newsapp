@@ -20,9 +20,11 @@ class CategoryAdapter(private val onClick: (position: Int, category: Category) -
             it.selected = false
         }
 
-        tempList[position].selected = true
-        submitList(tempList.toMutableList())
-        notifyDataSetChanged()
+        if (tempList.isNotEmpty()){
+            tempList[position].selected = true
+            submitList(tempList.toMutableList())
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

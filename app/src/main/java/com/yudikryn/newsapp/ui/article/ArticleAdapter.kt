@@ -16,6 +16,18 @@ import com.yudikryn.newsapp.databinding.ItemArticleBinding
 
 class ArticleAdapter(private val onClick: (article: Article) -> Unit) : ListAdapter<Article, ArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
+    fun updateData(data: List<Article>){
+        val tempList : ArrayList<Article> = arrayListOf()
+        if (currentList.isNotEmpty()){
+            tempList.addAll(currentList)
+        }
+        if (data.isNotEmpty()){
+            tempList.addAll(data)
+        }
+        submitList(tempList.toMutableList())
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
@@ -33,6 +45,7 @@ class ArticleAdapter(private val onClick: (article: Article) -> Unit) : ListAdap
             binding.apply {
 
                 tvTitle.text = article.title
+                tvSources.text = article.source.name
 
                 if (article.author != null){
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
